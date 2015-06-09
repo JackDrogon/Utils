@@ -31,7 +31,7 @@ class FiberQueue
   end
 
   def run()
-    if @stop
+    while @stop
       run_queue = @queue.select {|arr| arr[0]}
       fiber = run_queue.shift
       fiber.resume
